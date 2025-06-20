@@ -1,0 +1,34 @@
+[
+  {
+    "name": "kalki",
+    "verified": true,
+    "rating": 4.5,
+    "links": {
+      "website": "https://www.kalkifashion.com",
+      "instagram": "https://www.instagram.com/kalkifashion/",
+      "facebook": "https://www.facebook.com/kalkifashion"
+    }
+  },
+  {
+    "name": "zara",
+    "verified": true
+  },
+  {
+    "name": "fakebrand",
+    "verified": false
+  },
+  {
+    "name": "littlebox",
+    "verified": true
+  },
+  {
+    "name": "tomb",
+    "verified": false,
+    "rating": 3.2,
+    "links": {
+      "website": "https://example.com",
+      "instagram": "",
+      "facebook": ""
+    }
+  }
+]

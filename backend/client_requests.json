@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Aditi Sharma",
+    "business": "YesMadam",
+    "email": "aditi@example.com",
+    "details": "We offer beauty services at home.",
+    "requestedAt": "2025-06-19T12:35:20.123Z"
+  },
+  {
+    "name": "Kashish",
+    "business": "Validify.in",
+    "email": "dealdeck73@gmail.com",
+    "details": "We verify small social media business so that they get a verified tag and the users can shop freely without worrying about scams.",
+    "requestedAt": "2025-06-19T05:26:25.214Z"
+  }
+]

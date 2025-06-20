@@ -1,0 +1,520 @@
+.home-section-1 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 20px 40px;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.blinking-bar {
+  width: 6px;
+  height: 60px;
+  background-color: white;
+  animation: blink 1s steps(2, start) 0s 3, hideBar 0s forwards;
+  animation-delay: 0s, 1.5s;
+  margin: 0 auto 20px;
+}
+
+.main-heading {
+  font-size: 2.5rem;
+  animation: slideInTop 1s ease-out;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.sub-heading {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  color: #ddd;
+}
+
+.search-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.search-area input {
+  padding: 12px;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.search-area button {
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid #f27510;
+  color: #f27510;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.search-area button:hover {
+  background: #f27510;
+  color: white;
+}
+
+.result-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: white;
+  text-align: left;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromTop {
+  from { opacity: 0; transform: translateY(-100px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hideBar {
+  to {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.slide-from-top {
+  animation: slideInFromTop 1.3s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 1.9rem;
+    text-align: center;
+  }
+  .overlay {
+    width: 90%;
+    margin-left: 0;
+    margin-right: auto; /* leaves space on right */
+    border-radius: 0 20px 20px 0; /* optional: soft curve */
+    background: rgba(0, 0, 0, 0.75); /* keep overlay darker if needed */
+  }
+
+  .home-section-1 {
+    padding-top: 16px;
+  }
+
+  .sub-heading {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .search-area input {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .search-area button {
+    width: 60%;
+    font-size: 1rem;
+  }
+
+  .result-box {
+    font-size: 0.95rem;
+  }
+
+  .blinking-bar {
+    height: 40px;
+  }
+
+  .overlay {
+    padding: 30px 10px;
+  }
+}
+
+/* Section 2 */
+
+
+/* Mobile Hero Section */
+.hero-section {
+  background-color: #1b1a1a;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #ddd;
+}
+
+/* Form section */
+.form-section {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.form-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-section {
+    padding: 20px 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 1rem;
+  }
+}
+/* Mobile Hero Section */
+.hero-section {
+  background-color: #1b1a1a;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #ddd;
+}
+
+/* Form section */
+.form-section {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.form-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-section {
+    padding: 20px 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 1rem;
+  }
+}
+
+
+.hero-section {
+  background-color: #1b1a1a;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #ddd;
+}
+
+.home-section-3 {
+  background-color: #ffeacc;
+  padding: 60px 20px;
+}
+
+.section3-heading {
+  font-size: 1.8rem;
+  text-align: left;
+  margin-bottom: 40px;
+  color: #000;
+  font-weight: bold;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section3-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section3-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 60%;
+}
+
+.feature-block {
+  margin-bottom: 30px;
+}
+
+.feature-block h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.feature-block h4 {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.feature-block p {
+  font-size: 0.9rem;
+  color: #000;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.section3-image {
+  flex: 1;
+  min-width: 250px;
+  max-width: 35%;
+  text-align: center;
+}
+
+.section3-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .section3-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section3-text,
+  .section3-image {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .section3-heading {
+    text-align: center;
+  }
+}
+.contact-section {
+  background-color: white;
+  padding: 60px 20px;
+  color: #1b1a1a;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1b1a1a;
+}
+
+.contact-subheading {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: #f27510;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #d86200;
+}
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 0 10px;
+  }
+
+  .contact-heading {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .contact-subheading {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+ .what-we-do-section {
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+}
+/*mobile section 2*\
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+  .what-we-do-container {
+    flex-direction: column; /* stack on mobile */
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .text-content h2 {
+    font-size: 1.6rem;
+    text-align: left;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .logo-image {
+    max-width: 220px;
+  }
+}
+}

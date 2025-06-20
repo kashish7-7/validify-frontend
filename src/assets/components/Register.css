@@ -1,0 +1,83 @@
+/* Black Header Section */
+.register-header {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px 20px;
+  text-align: center;
+}
+
+.register-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.register-header p {
+  font-size: 1rem;
+  font-weight: normal;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* White Form Section */
+.register-form-section {
+  background-color: #fff;
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #222;
+}
+
+.business-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: none;
+  background-color: #fdfdfd;
+}
+
+/* Orange Button */
+.submit-btn {
+  background-color: #d45f00;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #f27510;
+}
