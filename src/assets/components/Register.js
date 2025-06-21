@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Register.css';
-const BASE_URL = "https://validify-backend-production.up.railway.app";
+const BASE_URL = "https://your-backend-name.vercel.app/api";
+
+// Example usage:
+fetch(`${BASE_URL}/search?term=tomb`)
 
 fetch(`${BASE_URL}/register`, {
   method: "POST",
