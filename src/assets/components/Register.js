@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Register.css';
-const BASE_URL = "https://your-backend-name.up.railway.app";
+const BASE_URL = "https://validify-backend.up.railway.app";
 
 // Example:
 fetch(`${BASE_URL}/register`, {
