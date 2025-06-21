@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Register.css';
-const BASE_URL = "https://validify-backend.up.railway.app";
+const BASE_URL = "https://validify-backend-production.up.railway.app";
 
-// Example:
 fetch(`${BASE_URL}/register`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formData)
+  body: JSON.stringify(data)
 });
+
 
 function Register() {
   const [formData, setFormData] = useState({
