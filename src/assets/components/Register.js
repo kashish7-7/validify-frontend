@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
-const BASE_URL = "https://your-backend-name.vercel.app/api";
+
+const BACKEND_URL = "https://validify-backend.vercel.app";
 
 // Example usage:
 fetch(`${BASE_URL}/search?term=tomb`)
