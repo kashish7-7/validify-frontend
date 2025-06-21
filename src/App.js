@@ -7,10 +7,10 @@ import Home from './assets/components/Home';
 import Register from './assets/components/Register';
 import HowItWorks from './assets/components/HowItWorks';
 // Replace this with your actual backend URL on Vercel:
-const BASE_URL = "https://validify-backend-production.up.railway.app";
-
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = "https://validify-backend.vercel.app";
 // Example usage:
-fetch(`${BASE_URL}/search?term=tomb`)
+fetch(`${BACKEND_URL}/search?term=${encodeURIComponent(term)}`)
 
 function App() {
   return (
@@ -27,6 +27,15 @@ function App() {
       <Footer />
     </Router>
   );
+ fetch(`${BACKEND_URL}/search?term=${encodeURIComponent(term)}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Search result:', data);
+      // handle data in your app state here
+    })
+    .catch(error => {
+      console.error('Error fetching from backend:', error);
+    });
 }
 
 export default App;
