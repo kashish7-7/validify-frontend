@@ -8,7 +8,6 @@ import bgHomeS2 from '../images/bghomes2.jpg';
 import logoImg from '../images/logo.png';
 import imgS3 from '../images/imgs3hp.png';
 
-const BACKEND_URL = "https://validify-backend.vercel.app";
 
 function Home() {
   const [searchResult, setSearchResult] = useState(null);
