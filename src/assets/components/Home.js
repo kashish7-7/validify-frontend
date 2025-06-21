@@ -1,36 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Home.css';
 import Search from './Search';
 
-// ✅ Import images
+// Image imports
 import backgroundImg from '../images/backgroundsection1hm.png';
 import bgHomeS2 from '../images/bghomes2.jpg';
 import logoImg from '../images/logo.png';
 import imgS3 from '../images/imgs3hp.png';
 
-
 function Home() {
-  const [searchResult, setSearchResult] = useState(null);
-
-  // ✅ UseEffect to fetch sample data
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/search?term=tomb`);
-        const data = await res.json();
-        setSearchResult(data);
-      } catch (err) {
-        console.error("Error fetching search result:", err);
-      }
-    };
-    fetchData();
-  }, []);
-
-  // ✅ Handle contact form submission
   const handleFormSubmit = (e) => {
     e.preventDefault();
     alert("Thank you! We'll get back to you soon.");
-    // You can add actual backend logic here later
   };
 
   return (
@@ -131,16 +112,6 @@ function Home() {
           </form>
         </div>
       </section>
-
-      {/* Optional: Show fetched results */}
-      <div className="api-result-section">
-        <h2>Sample API Result</h2>
-        {searchResult ? (
-          <pre className="api-result">{JSON.stringify(searchResult, null, 2)}</pre>
-        ) : (
-          <p>Loading sample result...</p>
-        )}
-      </div>
     </div>
   );
 }
