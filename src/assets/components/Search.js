@@ -4,13 +4,21 @@ function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState(null);
   const [requested, setRequested] = useState(false);
-
+const BASE_URL = "https://validify-backend-production.up.railway.app";
 const handleSearch = async () => {
   setRequested(false);
+  // Example:
+fetch(`${BASE_URL}/register`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData)
+});
+
   if (!searchTerm.trim()) {
     alert('Please enter a business name.');
     return;
   }
+  
   try {
     const response = await fetch(`http://localhost:5000/search?term=${searchTerm}`);
     const data = await response.json();
