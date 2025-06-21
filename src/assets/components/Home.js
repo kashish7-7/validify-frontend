@@ -2,11 +2,22 @@ import React from 'react';
 import './Home.css';
 import Search from './Search';
 
+const BACKEND_URL = "https://validify-backend.vercel.app";
 
+<Route path="/home" element={<Home backendUrl={BACKEND_URL} />} />
+<Route path="/register" element={<Register backendUrl={BACKEND_URL} />} />
 
+import React, { useEffect, useState } from 'react';
 
+function Home({ backendUrl }) {
+   const [searchResult, setSearchResult] = useState(null);
+  useEffect(() => {
+    fetch(`${backendUrl}/search?term=tomb`)
+      .then(res => res.json())
+      .then(data => setSearchResult(data))
+      .catch(console.error);
+  }, [backendUrl]);
 
-function Home() {
   return (
     <>
       {/* Section 1: Hero Section */}
@@ -178,7 +189,10 @@ function Home() {
   </div>
 </section>
 
-
+ <div>
+      <h1>Home Page</h1>
+      {searchResult && <pre>{JSON.stringify(searchResult, null, 2)}</pre>}
+    </div>
     </>
   );
 }
