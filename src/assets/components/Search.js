@@ -4,7 +4,12 @@ function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState(null);
   const [requested, setRequested] = useState(false);
-const BASE_URL = "https://validify-backend-production.up.railway.app";
+// Replace this with your actual backend URL on Vercel:
+const BASE_URL = "https://your-backend-name.vercel.app/api";
+
+// Example usage:
+fetch(`${BASE_URL}/search?term=tomb`)
+
 const handleSearch = async () => {
   setRequested(false);
   // Example:
@@ -18,7 +23,7 @@ fetch(`${BASE_URL}/register`, {
     alert('Please enter a business name.');
     return;
   }
-  
+
   try {
     const response = await fetch(`http://localhost:5000/search?term=${searchTerm}`);
     const data = await response.json();

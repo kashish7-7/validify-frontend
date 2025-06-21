@@ -6,6 +6,11 @@ import Home from './assets/components/Home';
 
 import Register from './assets/components/Register';
 import HowItWorks from './assets/components/HowItWorks';
+// Replace this with your actual backend URL on Vercel:
+const BASE_URL = "https://your-backend-name.vercel.app/api";
+
+// Example usage:
+fetch(`${BASE_URL}/search?term=tomb`)
 
 function App() {
   return (
