@@ -5,8 +5,8 @@ function Search() {
   const [result, setResult] = useState(null);
   const [requested, setRequested] = useState(false);
 // Replace this with your actual backend URL on Vercel:
-const BASE_URL = "https://your-backend-name.vercel.app/api";
 
+const BACKEND_URL = "https://validify-backend.vercel.app";
 // Example usage:
 fetch(`${BASE_URL}/search?term=tomb`)
 
