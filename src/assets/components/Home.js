@@ -5,6 +5,8 @@ import bg1 from '../images/backgroundsection1hm.png';
 import bg2 from '../images/bghomes2.jpg';
 import logo from '../images/logo.png';
 import imgS3 from '../images/imgs3hp.png';
+style={{ backgroundImage: `url(${bg1})` }}
+<img src={logo} alt="logo" />
 
 function Home() {
   return (
