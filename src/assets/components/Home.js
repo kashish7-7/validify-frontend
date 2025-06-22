@@ -80,14 +80,22 @@ function Home() {
     }
   `}</style>
 
-  <div className="what-we-do-container">
-    <img src={logo} alt="Validify logo" className="logo-image" />
-    <div className="text-content">
-      <h2>What We Do?</h2>
-      <p><strong>Validify</strong> verifies the legitimacy of online businesses by collecting and reviewing their legal documents — whether they operate on Instagram, Facebook, or independent shopping websites. We also analyze customer reviews and social activity to determine whether a business is safe to buy from. Our goal is to help you shop online with confidence and avoid scams.</p>
-    </div>
-  </div>
-</section>
+ 
+
+
+
+        <div className="what-we-do-container">
+          <div className="logo-container">
+            <img src={logo} alt="Validify logo" className="logo-image" />
+          </div>
+          <div className="text-content">
+            <h2>What We Do?</h2>
+            <p><strong>Validify</strong> verifies the legitimacy of online businesses by collecting and reviewing their legal documents... (rest of content)</p>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* Section 3 */}
       <section className="home-section-3">
