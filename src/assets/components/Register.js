@@ -24,11 +24,16 @@ function Register({ backendUrl }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
+<<<<<<< HEAD
 
       if (!res.ok) throw new Error('Server responded with error');
 
       const data = await res.json();
       alert(data.message || '✅ Request submitted!');
+=======
+      const data = await res.json();
+      alert(data.message || 'Request submitted!');
+>>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
       setFormData({ name: '', business: '', email: '', details: '' });
     } catch (err) {
       console.error('❌ Submission failed:', err.message);
@@ -40,9 +45,7 @@ function Register({ backendUrl }) {
     <>
       <section className="register-header">
         <h1>Verify Your Business</h1>
-        <p>
-          Join Validify today and ensure your business is recognized as trustworthy and verified by users.
-        </p>
+        <p>Join Validify today and ensure your business is recognized as trustworthy and verified by users.</p>
       </section>
 
       <section className="register-form-section">
@@ -65,13 +68,7 @@ function Register({ backendUrl }) {
 
           <div className="form-group">
             <label htmlFor="details">Details about your business</label>
-            <textarea
-              id="details"
-              value={formData.details}
-              onChange={handleChange}
-              rows="5"
-              required
-            ></textarea>
+            <textarea id="details" value={formData.details} onChange={handleChange} rows="5" required />
           </div>
 
           <button type="submit" className="submit-btn">Submit Verification Request</button>

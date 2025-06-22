@@ -7,8 +7,11 @@ import Register from './assets/components/Register';
 import HowItWorks from './assets/components/HowItWorks';
 
 const BACKEND_URL = "https://validify-backend.vercel.app";
+<<<<<<< HEAD
 <Route path="/home" element={<Home backendUrl={BACKEND_URL} />} />
 
+=======
+>>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
 
 function App() {
   return (
