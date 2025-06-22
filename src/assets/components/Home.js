@@ -27,7 +27,7 @@ function Home() {
 
       {/* Section 2: What We Do */}
       <section className="what-we-do-section" style={{ backgroundImage: `url(${bg2})` }}>
-<<<<<<< HEAD
+
   <style>{`
     .what-we-do-section {
       background-size: cover;
@@ -93,7 +93,7 @@ function Home() {
 
 
 
-=======
+
         <div className="what-we-do-container">
           <div className="logo-container">
             <img src={logo} alt="Validify logo" className="logo-image" />
@@ -105,7 +105,7 @@ function Home() {
         </div>
       </section>
 
->>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
+
       {/* Section 3 */}
       <section className="home-section-3">
         <h2 className="section3-heading">Why Use Validify?</h2>
