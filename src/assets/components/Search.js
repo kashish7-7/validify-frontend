@@ -5,7 +5,6 @@ function Search({ backendUrl }) {
   const [result, setResult] = useState(null);
   const [requested, setRequested] = useState(false);
 
-
   const handleSearch = async () => {
     setRequested(false);
 
@@ -24,19 +23,9 @@ function Search({ backendUrl }) {
     }
   };
 
-// Replace this with your actual backend URL on Vercel:
-
-const BACKEND_URL = "https://validify-backend.vercel.app";
-// Example usage:
-fetch(`${BASE_URL}/search?term=tomb`)
-
-
-
-
-
   const sendRequestToValidify = async () => {
     try {
-      const response = await fetch('http://localhost:5000/request-brand', {
+      const response = await fetch(`${backendUrl}/request-brand`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ brandName: searchTerm }),
@@ -50,8 +39,7 @@ fetch(`${BASE_URL}/search?term=tomb`)
   };
 
   return (
-   <div style={{ textAlign: 'center' }}>
-
+    <div style={{ textAlign: 'center' }}>
       <input
         type="text"
         placeholder="Search a business or paste URL"
@@ -59,28 +47,26 @@ fetch(`${BASE_URL}/search?term=tomb`)
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{ padding: '10px', width: '300px', borderRadius: '5px' }}
       />
-     <button
-  onClick={handleSearch}
-  style={{
-    marginLeft: '10px',
-    padding: '10px 20px',
-    border: '2px solid white',
-    background: 'transparent',
-    color: 'white',
-    fontWeight: 'bold',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  }}
->
-  Verify
-</button>
+      <button
+        onClick={handleSearch}
+        style={{
+          marginLeft: '10px',
+          padding: '10px 20px',
+          border: '2px solid white',
+          background: 'transparent',
+          color: 'white',
+          fontWeight: 'bold',
+          borderRadius: '5px',
+          cursor: 'pointer',
+        }}
+      >
+        Verify
+      </button>
 
       {result && (
-  <div style={{ marginTop: '20px', fontSize: '18px', color: 'white' }}>
-
+        <div style={{ marginTop: '20px', fontSize: '18px', color: 'white' }}>
           <p>{result.message}</p>
 
-          {/* Verified */}
           {result.status === 'verified' && result.business && (
             <div style={{ marginTop: '10px', textAlign: 'left', display: 'inline-block' }}>
               <p><strong>🌐 Website:</strong>{' '}
@@ -107,9 +93,8 @@ fetch(`${BASE_URL}/search?term=tomb`)
             </div>
           )}
 
-          {/* Not Verified */}
           {result.status === 'not_verified' && result.business && (
-            <div style={{ marginTop: '10px', textAlign: 'left', display: 'inline-block', color: 'lightred' }}>
+            <div style={{ marginTop: '10px', textAlign: 'left', display: 'inline-block', color: 'red' }}>
               <h3>❌ This website is <strong>Not Verified</strong></h3>
               <p>The business exists, but hasn't been verified for trust and reliability.</p>
               <p><strong>🌐 Website:</strong>{' '}
@@ -136,7 +121,6 @@ fetch(`${BASE_URL}/search?term=tomb`)
             </div>
           )}
 
-          {/* Not Found */}
           {result.status === 'not_found' && (
             <div style={{ marginTop: '10px', color: 'gray' }}>
               <p>No matching business found.</p>
