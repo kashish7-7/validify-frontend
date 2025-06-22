@@ -1,37 +1,30 @@
 import React, { useState } from 'react';
 
-function Search() {
+function Search({ backendUrl }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState(null);
   const [requested, setRequested] = useState(false);
-// Replace this with your actual backend URL on Vercel:
-const BASE_URL = "https://your-backend-name.vercel.app/api";
 
-// Example usage:
-fetch(`${BASE_URL}/search?term=tomb`)
+  const handleSearch = async () => {
+    setRequested(false);
 
-const handleSearch = async () => {
-  setRequested(false);
-  // Example:
-fetch(`${BASE_URL}/register`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formData)
-});
+    if (!searchTerm.trim()) {
+      alert('Please enter a business name.');
+      return;
+    }
 
-  if (!searchTerm.trim()) {
-    alert('Please enter a business name.');
-    return;
-  }
+    try {
+      const response = await fetch(`${backendUrl}/search?term=${searchTerm}`);
+      const data = await response.json();
+      setResult(data);
+    } catch (error) {
+      console.error('Search error:', error);
+      setResult({ message: '❌ Server not responding' });
+    }
+  };
 
-  try {
-    const response = await fetch(`http://localhost:5000/search?term=${searchTerm}`);
-    const data = await response.json();
-    setResult(data);
-  } catch (error) {
-    setResult({ message: '❌ Server not responding' });
-  }
-};
+
+
 
   const sendRequestToValidify = async () => {
     try {

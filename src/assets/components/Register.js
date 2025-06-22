@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
-const BASE_URL = "https://validify-backend-production.up.railway.app";
 
-fetch(`${BASE_URL}/register`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(data)
-});
-
-
-function Register() {
+function Register({ backendUrl }) {
   const [formData, setFormData] = useState({
     name: '',
     business: '',
@@ -26,19 +18,20 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const res = await fetch('http://localhost:5000/submit-client-request', {
+      const res = await fetch(`${backendUrl}/submit-client-request`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
+      if (!res.ok) throw new Error('Server responded with error');
+
       const data = await res.json();
-      alert(data.message || 'Request submitted!');
-      setFormData({ name: '', business: '', email: '', details: '' }); // Clear form
+      alert(data.message || '✅ Request submitted!');
+      setFormData({ name: '', business: '', email: '', details: '' });
     } catch (err) {
-      console.error('Submission failed:', err);
+      console.error('❌ Submission failed:', err.message);
       alert('❌ Something went wrong. Please try again.');
     }
   };
@@ -57,35 +50,17 @@ function Register() {
         <form className="business-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="name" value={formData.name} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label htmlFor="business">Enter Your Business Name*</label>
-            <input
-              type="text"
-              id="business"
-              value={formData.business}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="business" value={formData.business} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Provide your email address</label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <input type="email" id="email" value={formData.email} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
@@ -99,9 +74,7 @@ function Register() {
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-btn">
-            Submit Verification Request
-          </button>
+          <button type="submit" className="submit-btn">Submit Verification Request</button>
         </form>
       </section>
     </>

@@ -6,11 +6,29 @@ const serverless = require("serverless-http");
 
 const app = express();
 app.use(express.json());
+// For local testing
+if (require.main === module) {
+  const PORT = 3001;
+  app.listen(PORT, () => {
+    console.log(`🚀 Backend running locally at http://localhost:${PORT}`);
+  });
+}
 
+// Fix: Add missing comma after second origin in array
 app.use(cors({
   origin: [
     "https://validify.in",
-    "https://validifyin.netlify.app"
+    "https://validifyin.netlify.app",
+    "http://localhost:3000"
+  ]
+}));
+
+// Optional: Handle preflight OPTIONS requests for CORS
+app.options('*', cors({
+  origin: [
+    "https://validify.in",
+    "https://validifyin.netlify.app",
+    "http://localhost:3000"
   ]
 }));
 
@@ -129,6 +147,6 @@ app.post('/submit-client-request', (req, res) => {
   }
 });
 
-// Export for Vercel
+// Export for Vercel serverless deployment
 module.exports = app;
 module.exports.handler = serverless(app);
