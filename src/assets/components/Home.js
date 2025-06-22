@@ -5,11 +5,6 @@ import bg1 from '../images/backgroundsection1hm.png';
 import bg2 from '../images/bghomes2.jpg';
 import logo from '../images/logo.png';
 import imgS3 from '../images/imgs3hp.png';
-<<<<<<< HEAD
-=======
-style={{ backgroundImage: `url(${bg1})` }}
-<img src={logo} alt="logo" />
->>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
 
 function Home() {
   return (
@@ -30,7 +25,7 @@ function Home() {
 
       {/* Section 2: What We Do */}
       <section className="what-we-do-section" style={{ backgroundImage: `url(${bg2})` }}>
-<<<<<<< HEAD
+
   <style>{`
     .what-we-do-section {
       background-size: cover;
@@ -94,21 +89,6 @@ function Home() {
   </div>
 </section>
 
-
-
-=======
-        <div className="what-we-do-container">
-          <div className="logo-container">
-            <img src={logo} alt="Validify logo" className="logo-image" />
-          </div>
-          <div className="text-content">
-            <h2>What We Do?</h2>
-            <p><strong>Validify</strong> verifies the legitimacy of online businesses by collecting and reviewing their legal documents... (rest of content)</p>
-          </div>
-        </div>
-      </section>
-
->>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
       {/* Section 3 */}
       <section className="home-section-3">
         <h2 className="section3-heading">Why Use Validify?</h2>
