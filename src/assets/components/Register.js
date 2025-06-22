@@ -9,37 +9,27 @@ function Register({ backendUrl }) {
     details: ''
   });
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value
-    }));
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch(`${backendUrl}/submit-client-request`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch(`${backendUrl}/submit-client-request`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-<<<<<<< HEAD
+    if (!res.ok) throw new Error('Server responded with error');
 
-      if (!res.ok) throw new Error('Server responded with error');
+    const data = await res.json();
+    alert(data.message || '✅ Request submitted!');
+    setFormData({ name: '', business: '', email: '', details: '' });
 
-      const data = await res.json();
-      alert(data.message || '✅ Request submitted!');
-=======
-      const data = await res.json();
-      alert(data.message || 'Request submitted!');
->>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
-      setFormData({ name: '', business: '', email: '', details: '' });
-    } catch (err) {
-      console.error('❌ Submission failed:', err.message);
-      alert('❌ Something went wrong. Please try again.');
-    }
-  };
+  } catch (err) {
+    console.error('❌ Submission failed:', err.message);
+    alert('❌ Something went wrong. Please try again.');
+  }
+};
+
 
   return (
     <>
