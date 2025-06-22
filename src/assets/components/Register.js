@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Register.css';
 
-function Register({ backendUrl }) {
+const Register = () => {
+  // State to hold form data
   const [formData, setFormData] = useState({
     name: '',
     business: '',
@@ -16,27 +17,50 @@ const handleChange = (e) => {
     }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await fetch(`${backendUrl}/submit-client-request`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+  // State for messages (optional)
+  const [message, setMessage] = useState('');
 
-    if (!res.ok) throw new Error('Server responded with error');
+  // Read backend URL from env variable
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
 
-    const data = await res.json();
-    alert(data.message || '✅ Request submitted!');
-    setFormData({ name: '', business: '', email: '', details: '' });
+  // Handle input changes for all fields
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
 
-  } catch (err) {
-    console.error('❌ Submission failed:', err.message);
-    alert('❌ Something went wrong. Please try again.');
-  }
-};
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    // Basic validation (optional)
+    if (!formData.name || !formData.business || !formData.email) {
+      setMessage('Please fill in all required fields.');
+      return;
+    }
+
+    try {
+      const res = await fetch(`${backendURL}/submit-client-request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (!res.ok) throw new Error('Server responded with an error');
+
+      const data = await res.json();
+      setMessage(data.message || 'Request submitted successfully!');
+      // Reset form
+      setFormData({ name: '', business: '', email: '', details: '' });
+
+    } catch (err) {
+      console.error('Submission failed:', err.message);
+      setMessage('Something went wrong. Please try again.');
+    }
+  };
 
   return (
     <>
@@ -65,14 +89,15 @@ const handleChange = (e) => {
 
           <div className="form-group">
             <label htmlFor="details">Details about your business</label>
-            <textarea id="details" value={formData.details} onChange={handleChange} rows="5" required />
+            <textarea id="details" value={formData.details} onChange={handleChange} rows="5" />
           </div>
 
           <button type="submit" className="submit-btn">Submit Verification Request</button>
         </form>
+        {message && <p className="form-message">{message}</p>}
       </section>
     </>
   );
-}
+};
 
 export default Register;
