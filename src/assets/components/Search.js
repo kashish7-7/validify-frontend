@@ -4,7 +4,7 @@ function Search({ backendUrl }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState(null);
   const [requested, setRequested] = useState(false);
-<<<<<<< HEAD
+
 
   const handleSearch = async () => {
     setRequested(false);
@@ -23,13 +23,13 @@ function Search({ backendUrl }) {
       setResult({ message: '❌ Server not responding' });
     }
   };
-=======
+
 // Replace this with your actual backend URL on Vercel:
 
 const BACKEND_URL = "https://validify-backend.vercel.app";
 // Example usage:
 fetch(`${BASE_URL}/search?term=tomb`)
->>>>>>> 7a6c60a3c90d34089c49964535dd6af383d77b58
+
 
 
 
