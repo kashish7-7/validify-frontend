@@ -9,7 +9,15 @@ const Register = () => {
     email: '',
     details: ''
   });
-const handleChange = (e) => {
+
+  // ✅ Define `setMessage` and `message` state
+  const [message, setMessage] = useState('');
+
+  // ✅ Define `backendURL` safely
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
+
+  // ✅ Single definition of `handleChange`
+  const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -17,26 +25,11 @@ const handleChange = (e) => {
     }));
   };
 
-  // State for messages (optional)
-  const [message, setMessage] = useState('');
-
-  // Read backend URL from env variable
-  const backendURL = process.env.REACT_APP_BACKEND_URL;
-
-  // Handle input changes for all fields
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-
-  // Handle form submission
+  // ✅ Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation (optional)
+    // Basic validation
     if (!formData.name || !formData.business || !formData.email) {
       setMessage('Please fill in all required fields.');
       return;
@@ -53,7 +46,6 @@ const handleChange = (e) => {
 
       const data = await res.json();
       setMessage(data.message || 'Request submitted successfully!');
-      // Reset form
       setFormData({ name: '', business: '', email: '', details: '' });
 
     } catch (err) {
@@ -94,6 +86,8 @@ const handleChange = (e) => {
 
           <button type="submit" className="submit-btn">Submit Verification Request</button>
         </form>
+
+        {/* ✅ Conditional message rendering */}
         {message && <p className="form-message">{message}</p>}
       </section>
     </>
